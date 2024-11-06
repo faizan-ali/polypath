@@ -2,6 +2,7 @@
 
 import type { LanguageWithMeta } from '@/lib/languages'
 import { BookOpen, ChevronDown, Github, Globe, Languages, Linkedin, Twitter, X } from 'lucide-react'
+import Script from 'next/script'
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
@@ -101,6 +102,16 @@ const Polypath = () => {
 
 	return (
 		<div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl h-screen">
+			<Script src="https://www.googletagmanager.com/gtag/js?id=G-QZFB1QC3LV" />
+			<Script id="google-analytics">
+				{`
+				  window.dataLayer = window.dataLayer || [];
+				  function gtag(){dataLayer.push(arguments);}
+				  gtag('js', new Date());
+				
+				  gtag('config', 'G-QZFB1QC3LV');
+       			`}
+			</Script>
 			<div className="w-full max-w-xl mx-auto p-5 space-y-6">
 				<div className="text-center space-y-2">
 					<div className="flex justify-center mb-4">
