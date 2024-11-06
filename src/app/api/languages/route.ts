@@ -88,7 +88,7 @@ const getEasyLanguages = (knownLanguages: Array<Language>) => {
 					difficultyLabel: interpretDifficulty(finalDifficulty)
 				}
 			})
-			.filter(lang => lang.difficulty < 4)
+			.filter(lang => lang.difficulty < 4.55)
 			.filter(lang => !knownLanguages.includes(lang.name.toLowerCase() as Language))
 			.sort((a, b) => a.difficulty - b.difficulty)
 	}

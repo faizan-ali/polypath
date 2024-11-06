@@ -7,6 +7,46 @@ import { useEffect, useState } from 'react'
 
 type LanguageWithDifficulty = LanguageWithMeta & { difficulty: number; difficultyLabel?: string }
 
+const RatingDots = ({ value }: { value: number }) => {
+	const maxDots = 5
+	const fullDots = Math.floor(value * (maxDots / 4))
+	const partialDot = (value * (maxDots / 4)) % 1
+	let emptyDots = maxDots - fullDots - (partialDot > 0 ? 1 : 0)
+	emptyDots = emptyDots < 0 ? 0 : emptyDots
+
+	return (
+		<div className="flex gap-0.5">
+			{/* Full dots */}
+			{Array(fullDots)
+				.fill(0)
+				.map((_, i) => (
+					<span key={`full-${i}`} className="text-teal-600">
+						●
+					</span>
+				))}
+
+			{/* Partial dot */}
+			{partialDot > 0 && (
+				<span className="relative inline-block">
+					<span className="text-gray-300">●</span>
+					<span className="absolute inset-0 text-teal-600 overflow-hidden" style={{ width: `${partialDot * 100}%` }}>
+						●
+					</span>
+				</span>
+			)}
+
+			{/* Empty dots */}
+			{Array(emptyDots)
+				.fill(0)
+				.map((_, i) => (
+					<span key={`empty-${i}`} className="text-gray-300">
+						●
+					</span>
+				))}
+		</div>
+	)
+}
+
 const Polypath = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(true)
 	const [languages, setLanguages] = useState<LanguageWithMeta[]>([])
@@ -27,13 +67,6 @@ const Polypath = () => {
 			.catch(console.error)
 			.finally(() => setIsLoading(false))
 	}, [])
-
-	// Helper Functions
-	const getDots = (difficulty: number): string => {
-		const maxDots = 5
-		const dots = Math.min(Math.round(difficulty * (maxDots / 4)), maxDots)
-		return '●'.repeat(dots) + '○'.repeat(maxDots - dots)
-	}
 
 	// Event Handlers
 	const handleLanguageSelect = (language: LanguageWithMeta): void => {
@@ -90,9 +123,6 @@ const Polypath = () => {
 						features.
 					</p>
 					<div className="text-xs text-gray-600 flex flex-row gap-3 justify-center items-center">
-						<div>
-							Built by <span className="font-semibold">Faizan Ali</span>
-						</div>
 						<a href="https://x.com/faizanali94" className="cursor-pointer" target="_blank" rel="noreferrer">
 							<Twitter className="size-4 cursor-pointer stroke-teal-600" />
 						</a>
@@ -198,7 +228,7 @@ const Polypath = () => {
 											<div className="text-right flex flex-col gap-1">
 												<div className="text-teal-600 font-semibold">{lang.difficultyLabel}</div>
 												<div className="flex flex-row items-center gap-1 text-sm text-gray-500">
-													Difficulty: <span className="tracking-wider text-base">{getDots(lang.difficulty)}</span>
+													Difficulty: <RatingDots value={lang.difficulty} />
 												</div>
 											</div>
 										</div>
