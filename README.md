@@ -1,4 +1,4 @@
-# Language Learning Path 🌎
+# Polypath 🌎
 
 A modern, interactive web application that helps users discover new languages to learn based on their current language knowledge.
 
@@ -8,16 +8,16 @@ Armed with this, I spent a couple hours on a plane ride back from Mexico discuss
 
 It is an excellent example of the capabilities of modern LLMs to craft algorithms and design UI based on good prompting. 
 
-![Language Learning Path Demo](https://polypath.xyz)
+[Polypath Demo](https://polypath.xyz)
 
 
 ## 🛠️ Tech Stack
 
-- [Next.js](https://nextjs.org/) - React Framework with API Routes
-- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [Next.js](https://nextjs.org/) - React Framework with API Routes on Typescript
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Lucide Icons](https://lucide.dev/) - Icons
+- [Lucide Icons](https://lucide.dev/) - Self explanatory
 - [shadcn/ui](https://ui.shadcn.com/) - A single UI component (lol)
+- [Claude 3.5 Sonnet](https://claude.ai/) - The brains
 
 ## 🚀 Getting Started (if you're cloning and developing)
 
