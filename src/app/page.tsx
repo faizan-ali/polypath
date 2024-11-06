@@ -1,7 +1,7 @@
 'use client'
 
 import type { LanguageWithMeta } from '@/lib/languages'
-import { BookOpen, ChevronDown, Globe, Languages, X } from 'lucide-react'
+import { BookOpen, ChevronDown, Github, Globe, Languages, Linkedin, Twitter, X } from 'lucide-react'
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
@@ -79,16 +79,30 @@ const Polypath = () => {
 					<p className="text-gray-600">Select up to three languages you already know</p>
 					<p className="text-gray-600 text-xs">
 						Calculations based on an interesting approach outlined by{' '}
-						<a href="https://www.cysouw.de/home/index.html" className="text-blue-500 cursor-pointer">
+						<a href="https://www.cysouw.de/home/index.html" className="text-teal-600 font-semibold cursor-pointer">
 							Michael Cysouw
 						</a>{' '}
 						in a{' '}
-						<a href="https://library.oapen.org/handle/20.500.12657/23714" className="text-blue-500 cursor-pointer">
+						<a href="https://library.oapen.org/handle/20.500.12657/23714" className="text-teal-600 font-semibold cursor-pointer">
 							2013 paper
 						</a>{' '}
 						using typological similarity, geographical distance, genealogical relatedness, writing system, and specific grammatical
 						features.
 					</p>
+					<div className="text-xs text-gray-600 flex flex-row gap-3 justify-center items-center">
+						<div>
+							Built by <span className="font-semibold">Faizan Ali</span>
+						</div>
+						<a href="https://x.com/faizanali94" className="cursor-pointer" target="_blank" rel="noreferrer">
+							<Twitter className="size-4 cursor-pointer stroke-teal-600" />
+						</a>
+						<a href="https://www.linkedin.com/in/faizanhali/" className="cursor-pointer" target="_blank" rel="noreferrer">
+							<Linkedin className="size-4 cursor-pointer stroke-teal-600" />
+						</a>
+						<a href="https://github.com/faizan-ali/polypath" className="cursor-pointer" target="_blank" rel="noreferrer">
+							<Github className="size-4 cursor-pointer stroke-teal-600" />
+						</a>
+					</div>
 				</div>
 
 				<div className="relative">
