@@ -8,7 +8,13 @@ const calculateLanguageDifficulty = (knownLanguages: Array<Language>, targetLang
 
 	// If targetLanguage is undefined, return a list of easy languages
 	if (targetLanguage === undefined) {
-		return { languages: getEasyLanguages(knownLanguages).languages.map(toFrontendLanguage) }
+		return {
+			languages: getEasyLanguages(knownLanguages).languages.map(lang => ({
+				...lang,
+				// Capitalize each word in the language name
+				name: lang.name.replace(/\b\w/g, l => l.toUpperCase())
+			}))
+		}
 	}
 
 	const targetInfo = languageData[targetLanguage]
@@ -94,14 +100,6 @@ const interpretDifficulty = (score: number) => {
 	if (score < 3.5) return 'Moderate'
 	if (score < 4) return 'Difficult'
 	return 'Very Difficult'
-}
-
-export const toFrontendLanguage = (language: LanguageWithMeta) => {
-	return {
-		...language,
-		// Capitalize each word in the language name
-		name: language.name.replace(/\b\w/g, l => l.toUpperCase())
-	}
 }
 
 export const GET = (req: NextRequest) => {

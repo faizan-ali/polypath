@@ -13,8 +13,8 @@ export default function GlobalError() {
 					Oops, something went wrong!
 				</h1>
 				<p className="text-lg text-gray-500 dark:text-gray-400">
-					We&apos;re sorry, but it looks like there was an error on our end. Please try again later or contact us if the
-					problem persists.
+					We&apos;re sorry, but it looks like there was an error on our end. Please try again later or contact us if the problem
+					persists.
 				</p>
 			</div>
 		</div>
